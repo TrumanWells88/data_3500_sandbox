@@ -60,8 +60,6 @@ Write a program that prints all the multiples of 5, from 5 to 95 using a for loo
 
 multiple = 5
 
-for multiple in 
-
 """
 Programming Activity 4
 
