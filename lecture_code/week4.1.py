@@ -84,4 +84,38 @@ while not_guessed == True:
 
 
 
+for i in range(10):
+    guess = int(input("Enter your guess: "))
 
+    if guess > secret_num:
+        print("too high")
+    elif guess < secret_num:
+        print("too low")
+    else:
+        print("you got it!")
+        break
+
+
+if i == 9:
+    print("you are out of guesses.")
+
+# count even numbers
+counter = 0
+for i in range (1, 21):
+    if i % 2 == 0:
+        counter += 1
+
+print("there are", counter, "even numbers between 1 and 20.")
+
+# count even numbers a different way
+start = 1
+end = 21
+counter = 0
+
+for i in range (1, 21, 2):
+    if i % 2 == 0:
+        counter += 1
+
+print("there are", counter, "even numbers between 1 and 20.")
+
+# step function

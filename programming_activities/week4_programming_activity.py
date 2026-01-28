@@ -58,7 +58,9 @@ Programming Activity 3
 Write a program that prints all the multiples of 5, from 5 to 95 using a for loop. 
 """
 
-multiple = 5
+start, end = 5, 100
+for i in range (5, 100, 5):
+    print(i)
 
 """
 Programming Activity 4
@@ -66,3 +68,8 @@ Programming Activity 4
 Write a program that prints all the multiples of 5, from 5 to 95 using a while loop.
 """
  
+counter = 5
+
+while counter <= 95:
+    print(counter)
+    counter += 5
