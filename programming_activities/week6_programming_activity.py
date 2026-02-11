@@ -41,7 +41,7 @@ print(sorted(rand_nums))
 
 
 """
-Programming Activity 4 (USE THE FILE IN CANVAS)
+Programming Activity 4
 
 Using the list you generated in programming activity 3, extend your program to check if there are 2 even numbers in a row. If there are two even numbers in a row, print the numbers.
 - There's a few ways to approach this, you could:
@@ -52,15 +52,40 @@ Using the list you generated in programming activity 3, extend your program to c
 - Each iteration in the loop check if the current number and next number are both even.
 """
 
+count = 0
+for num in rand_nums:
+    if count > 0:
+        print("num: ", rand_nums[count])
+        print("previous num: ", rand_nums[count - 1])
+        if rand_nums[count] % 2 == 0 and rand_nums[count - 1] % 2 == 0:
+            print(rand_nums[count])
+            print(rand_nums[count - 1])
+            print( "Two evens in a row!")
+            print("It's even.")
+        else:
+            print("It's odd.")
+    count += 1
+    
 
 """
-Programming Activity 5
+Programming Activity 5 (USE THE FILE IN CANVAS)
 
 1. Download one year worth of stock data from yahoo finance. The instructions to do this are in the HW4 description.
 2. After you have one year worth of stock data, use a for loop to iterate through the data, and calculate the average for the entire data set.
 3. After you have calculated the average for the entire data set, see if you can calculate the average for the first 5 days only.  
 (you will need this logic for your homework).
 """
+
+stocks_file = open('programming_activities/AAPL.2023.txt')
+file_lines = stocks_file.readlines()
+
+sum = 0
+for price in stocks_file:
+    sum += float(price)
+
+avg = sum / len(file_lines)
+print("average = ", avg)
+
 """
 Programming Activity 5.2 
 This activity is a continuation from the last one and is meant to help you with your homweork.
