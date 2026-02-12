@@ -80,21 +80,72 @@ stocks_file = open('programming_activities/AAPL.2023.txt')
 file_lines = stocks_file.readlines()
 
 sum = 0
-for price in stocks_file:
+for price in file_lines:
     sum += float(price)
 
 avg = sum / len(file_lines)
-print("average = ", avg)
+print("Average = ", avg)
+
+stocks_file.close()
 
 """
 Programming Activity 5.2 
 This activity is a continuation from the last one and is meant to help you with your homweork.
-Write a Python program to read in the stock prices from a file, into a list.
-Create a list of floats from the list of strings you read in, from step 2.
-Calculate the average of the first 4 days in your list.
-Calculate the average of the last 4 days in your list.
-In a for loop, calculate a 4 day moving average for the floats in the list.
-Add logic in the for loop to implement a simple moving average 
+1. Write a Python program to read in the stock prices from a file, into a list.
+2. Create a list of floats from the list of strings you read in, from step 2.
+3. Calculate the average of the first 4 days in your list.
+4. Calculate the average of the last 4 days in your list.
+5. In a for loop, calculate a 4 day moving average for the floats in the list.
+6. Add logic in the for loop to implement a simple moving average 
 trading strategy.
-Display the profit from the strategy, after the for loop has finished.
+7. Display the profit from the strategy, after the for loop has finished.
 """
+
+stocks_file = open('programming_activities/AAPL.2023.txt', 'r')
+prices = stocks_file.readlines()
+stocks_file.close()
+
+price_list = []
+
+for price in prices:
+    price_list.append(float(price))
+
+first_four = 0
+for i in range(4):
+    first_four += price_list[i]
+
+first_four_avg = first_four / 4
+print("The average of the first 4 days was: ", first_four_avg)
+
+last_four = 0
+for i in range(len(price_list) - 4, len(price_list)):
+    last_four += price_list[i]
+
+last_four_avg = last_four / 4
+print("The average of the last 4 days was: ", last_four_avg)
+
+moving_avg = []
+for i in range(len(price_list) - 3):
+    total = 0
+    for j in range(i ,i + 4):
+        total += price_list[j]
+    
+    four_day_avg = total / 4
+    moving_avg.append(four_day_avg)
+
+position = 0
+buy_price = 0
+profit = 0
+
+for i in range(len(moving_avg)):
+    current_price = price_list[i + 3]
+    current_avg = moving_avg[i]
+
+    if position == 0 and current_price > current_avg:
+        position = 1
+        buy_price = current_price
+    elif position == 1 and current_price < current_avg:
+        position = 0
+        profit += current_price - buy_price
+
+print("Profit: ", profit)
