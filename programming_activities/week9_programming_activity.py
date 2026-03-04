@@ -36,6 +36,15 @@ welcome, NAME ALLCAPS!.
  - change the string to be all upper case
  - print to the console: "welcome, NAME ALLCAPS!" (adding an exclamation
 """
+while True:
+    nameAsk = str(input("What's your name?: ")).strip()
+    if nameAsk.isaplha():
+      break
+    else:
+      print("Please enter a valid name (letters only: )")
+        
+print(f"Welcome, {nameAsk.upper()}!")
+
 """
 Programming Activity 4
 
@@ -56,4 +65,23 @@ Whoa, and then I was like Whoa"
  - append an exclamation point.
  - print the new sentence.
 """
+
+sentence = "dude, I just biked down that mountain and at first I was like Whoa, and then I was like Whoa"
+print(sentence)
+
+sentence.capitalize()
+words = sentence.split()
+
+count = 0
+for i in words:
+    if "Whoa" in words[count]:
+      if count == 1:
+        words[count] = words[count].replace("Whoa", "whoa")
+      elif count == 2:
+        words[count] = words[count].replace("Whoa", "WHOA")
+    count += 1
+newSentence = sentence + "!"
+print(newSentence)
+
+
 
